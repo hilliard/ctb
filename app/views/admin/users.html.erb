@@ -1,0 +1,20 @@
+<h1>Admin Users</h1>
+<div class="row">
+  <div class="span15">
+    <table>
+      <tr>
+        <th width="30%">Username</th>
+        <th width="20%">Signed Up On</th>
+        <th width="20%">Last Signed In On</th>
+      </tr>
+      <% for user in @users %>
+          <tr>
+            <td><%= user.username %></td>
+            <td><%= user.signed_up_on %></td>
+            <td><%= user.last_signed_in_on %></td>
+            <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<% provide(:title, 'Home') %>
+
+
+<div class="center hero-unit">
+  <%= link_to image_tag("Cutthroat_Profile_Photo_normal.png", alt: "Cutthroats"), 'http://www.centralhockeyleague.com/teams/denver' %>
+  <h1>Cutthroat Equipment Home</h1>
+
+  <h2>
+    This is the home page for the Cutthroat Equipment Sample Application.
+  </h2>
+  <% if current_user %>
+       <%= link_to "Sign Out", signed_out_path, class: "btn btn-large btn-primary" %>
+  <% else %>
+       <%= link_to "Sign In Now!", sign_in_path, class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>
+

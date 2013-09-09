@@ -1,0 +1,27 @@
+<h1>Sign In</h1>
+
+<div class="row">
+  <div class="span5 offset3">
+    <%= form_for User.new, :as => :user, :url => sign_in_path do |f| %>
+        <p>
+          <%= f.label 'username or email:' %><br/>
+          <%= f.text_field :username %>
+        </p>
+        <p>
+          <%= f.label 'password:' %><br/>
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <%= f.check_box :remember_me, class: "btn btn-medium btn-primary" %>
+          <%= f.label 'remember me' %>
+        </p>
+        <p>
+          <%= f.submit 'Sign In', class: "btn btn-medium btn-primary" %>&nbsp;&nbsp;&nbsp;
+          <%= f.submit 'Clear Form',  class: "btn btn-medium btn-primary", :type => 'reset' %>
+        </p>
+        <p>
+          <%= link_to 'forgot your password?', :forgot_password %>
+        </p>
+    <% end %>
+    </div>
+</div>
