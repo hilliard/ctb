@@ -1,0 +1,22 @@
+<h1>Admin Roles</h1>
+<div class="row">
+  <div class="span15">
+    <table>
+      <tr>
+        <th width="10%">Name</th>
+        <th width="10%">Description</th>
+        <th width="40%">Created At</th>
+        <th width="40%">Updated At</th>
+      </tr>
+      <% for role in @roles %>
+          <tr>
+            <td ><%= role.name %></td>
+            <td ><%= role.description%></td>
+            <td ><%= role.created_at %></td>
+            <td ><%= role.updated_at %></td>
+            <td><%= link_to 'Delete', role, :confirm => 'Are you sure?', :method => :delete %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

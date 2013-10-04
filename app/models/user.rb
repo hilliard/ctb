@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :username, :password, :password_confirmation, :new_password, :new_password_confirmation, :remember_me
   attr_accessor :password, :new_password, :previous_email, :previous_username, :remember_me
   before_save :encrypt_password
+  before_save {self.email email.downcase}
+
+ has_and_belongs_to_many :roles
 
   validates_confirmation_of :password
 

@@ -1,0 +1,21 @@
+<h1>Role Settings</h1>
+<div class="row">
+  <div class="span5 offset3">
+    <%= form_for @role, :as => :role, :url => role_settings_path, :method => :put do |f| %>
+
+          <%= f.label 'Role Name: (leave unchanged if you are not changing your username)' %><br/>
+          <%= f.text_field :name %>
+          <%= show_field_error(@role, :name) %>
+        </p>
+        <p>
+          <%= f.label 'Description: (leave unchanged if you are not changing your email address)' %><br/>
+          <%= f.text_field :description %>
+          <%= show_field_error(@role, :description) %>
+        </p>
+
+        <p>
+          <%= f.submit 'Update', class: "btn btn-medium btn-primary" %>
+        </p>
+    <% end %>
+  </div>
+</div>

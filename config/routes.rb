@@ -27,8 +27,15 @@ Ctb::Application.routes.draw do
 
   get "admin_users" => "admin#users"
   delete "user/:id" => "admin#delete_user", :as => "user"
+  get "admin_roles" => "admin#roles"
+  delete "role/:id" => "admin#delete_role", :as => "role"
 
-
+# role assign stuff
+  get "roles" => "roles#index", :as => "root_roles"
+  get "role/assign" => "roles#assign", :to => "role/assign"
+  post "new_role" => "roles#new"
+ # post "role/assign" => "roles#form", :as => "role/form"
+ # get "role/update" => "roles#update", :as => "role/update"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

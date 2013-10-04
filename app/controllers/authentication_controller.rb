@@ -183,6 +183,11 @@ class AuthenticationController < ApplicationController
       render :action => "password_reset"
     end
   end
+  # ========= Handles Changing Role Settings ==========
+
+  def role_settings
+    @roles = Role.all
+  end
 
   # ========= Private Functions ==========
 
@@ -229,4 +234,6 @@ class AuthenticationController < ApplicationController
       cookies.permanent[:auth_token] = nil
     end
   end
+
+
 end

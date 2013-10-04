@@ -1,0 +1,44 @@
+<h1>Index Roles</h1>
+
+<%= form_for @roles, :as => :role, :url => root_roles_path, :method => :get do |f| %>
+      <p>
+        <%= f.label 'Description:' %><br/>
+        <%= f.text_field :description %>
+
+      </p>
+      <p>
+        <%= f.submit 'Create Role',class: "btn btn-medium btn-primary" %>
+      </p>
+  <% end %>
+
+<div class="row">
+  <div class="span15">
+    <table>
+      <tr>
+        <th width="15%">Role</th>
+        <th width="15%">Description</th>
+        <th width="20%">Created At</th>
+        <th width="20%">Updated At</th>
+      </tr>
+      <% for role in @roles %>
+          <tr>
+            <td><%= role.name %></td>
+            <td><%= role.description %></td>
+            <td><%= role.created_at %></td>
+            <td><%= role.updated_at %></td>
+            <td><%= link_to 'Delete', role, :confirm => 'Are you sure?', :method => :delete %></td>
+          </tr>
+      <% end %>
+    </table>
+    </div>
+</div>
+<hr>
+<h1>Roles</h1>
+
+<% @roles.each do |role| %>
+    <div class="role">
+      <h2><%= link_to role.name, role %></h2>
+      <%= pluralize role.name, "name" %>
+    </div>
+<% end %>
+
