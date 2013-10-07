@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  displayname: MyString
+  description: MyString
+  location: MyString
+  model: MyString
+  vendor: MyString
+  supplier: MyString
+  cost: 9.99
+  value: 9.99
+  condition: MyString
+  status: MyString
+  category: MyString
+  color: MyString
+  uom: MyString
+  user_id: 
+  quantity: 
+  acquired: 2013-10-03
+  retired: 2013-10-03
+  note: MyText
+  image_url: MyString
+
+two:
+  displayname: MyString
+  description: MyString
+  location: MyString
+  model: MyString
+  vendor: MyString
+  supplier: MyString
+  cost: 9.99
+  value: 9.99
+  condition: MyString
+  status: MyString
+  category: MyString
+  color: MyString
+  uom: MyString
+  user_id: 
+  quantity: 
+  acquired: 2013-10-03
+  retired: 2013-10-03
+  note: MyText
+  image_url: MyString

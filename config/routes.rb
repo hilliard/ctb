@@ -1,4 +1,6 @@
 Ctb::Application.routes.draw do
+  resources :products
+
   # root :to => "home#index"
 
   root  'static_pages#home'
