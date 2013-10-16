@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131004015723) do
+ActiveRecord::Schema.define(version: 20131010014146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conditions", force: true do |t|
+    t.string   "condition_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "location_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "displayname"
@@ -50,6 +62,12 @@ ActiveRecord::Schema.define(version: 20131004015723) do
   create_table "roles_users", force: true do |t|
     t.integer  "role_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", force: true do |t|
+    t.string   "status_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

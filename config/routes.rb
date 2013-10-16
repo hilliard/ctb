@@ -1,4 +1,10 @@
 Ctb::Application.routes.draw do
+  resources :statuses
+
+  resources :conditions
+
+  resources :locations
+
   resources :products
 
   # root :to => "home#index"
@@ -22,6 +28,11 @@ Ctb::Application.routes.draw do
   get "account_settings" => "authentication#account_settings"
   put "account_settings" => "authentication#set_account_info"
 
+
+  get "role_settings" => "authentication#role_settings"
+  put "role_settings" => "authentication#set_role_info"
+
+
   get "forgot_password" => "authentication#forgot_password"
   put "forgot_password" => "authentication#send_password_reset_instructions"
   get "password_reset" => "authentication#password_reset"
@@ -29,13 +40,18 @@ Ctb::Application.routes.draw do
 
   get "admin_users" => "admin#users"
   delete "user/:id" => "admin#delete_user", :as => "user"
+
+  get "new_role" => "authentication#new_role"
+  put "new_role" => "authentication#create_role"
+
+
   get "admin_roles" => "admin#roles"
   delete "role/:id" => "admin#delete_role", :as => "role"
 
 # role assign stuff
-  get "roles" => "roles#index", :as => "root_roles"
-  get "role/assign" => "roles#assign", :to => "role/assign"
-  post "new_role" => "roles#new"
+  # get "roles" => "roles#index", :as => "root_roles"
+  # get "role/assign" => "roles#assign", :to => "role/assign"
+
  # post "role/assign" => "roles#form", :as => "role/form"
  # get "role/update" => "roles#update", :as => "role/update"
 

@@ -185,9 +185,48 @@ class AuthenticationController < ApplicationController
   end
   # ========= Handles Changing Role Settings ==========
 
-  def role_settings
-    @roles = Role.all
+  def new_role
+    @role = Role.new
   end
+
+  def role_settings
+    @role = Role.all
+    render :action => "role_setting"
+  end
+
+  def set_role_info
+    # old_role = current_role
+
+
+    # update the user with any new username and email
+    @role.update(params[:role])
+    # Set the old email and username, which is validated only if it has changed.
+
+
+    @role.save
+    flash[:notice] = 'Role settings have been changed.'
+    redirect_to :root
+
+    # render :action => "role_settings"
+
+  end
+
+  # POST /roles
+  # POST /roles.json
+  def create_role
+    @role = Role.new(params[:role])
+
+    respond_to do |format|
+      if @role.save
+        format.html { redirect_to @role, notice: 'Role was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @role }
+      else
+        format.html { render action: 'new_role' }
+        format.json { render json: @new_role.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   # ========= Private Functions ==========
 
