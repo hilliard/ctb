@@ -1,5 +1,8 @@
 <div class="row">
   <div class="span5 offset3">
+
+
+
     <%= form_for(@product) do |f| %>
       <% if @product.errors.any? %>
         <div id="error_explanation">
@@ -23,8 +26,8 @@
       </div>
       <div class="field">
         <%= f.label :location %><br>
-        <%= collection_select(:location, :location_id, @locations, :id, :location_name,{:prompt => false}) %>
-        <%#= f.text_field :location %>
+        <%#= f.collection_select(:location, :location_name,  @locations, :id, :location_name, {:prompt => 'Select Location'}) %>
+        <%= f.collection_select(:location, @locations, :location_name, :location_name ) %>
       </div>
       <div class="field">
         <%= f.label :model %><br>
@@ -48,12 +51,15 @@
       </div>
       <div class="field">
         <%= f.label :condition %><br>
-        <%= collection_select(:condition, :condition_id, @conditions, :id, :condition_name,{:prompt => false}) %>
+        <%#= f.collection_select(:condition, :condition_name, @conditions, :condition_name, :condition_name,{:prompt => 'Select the condition of this product'}) %>
+        <%= f.collection_select(:condition, @conditions, :condition_name, :condition_name ) %>
+        <%#= f.text_field :condition %>
       </div>
       <div class="field">
         <%= f.label :status %><br>
-        <%= collection_select(:status, :status_id, @statuses, :id, :status_name,{:prompt => false}) %>
-        <%#= f.text_field :status %>
+        <%#= f.collection_select(:status, :status_name, @statuses, :status_name, :status_name,{:prompt => 'Select the status of this product'}) %>
+        <%= f.collection_select(:status, @statuses, :status_name, :status_name ) %>
+         <%#= f.text_field :status %>
       </div>
       <div class="field">
         <%= f.label :category %><br>

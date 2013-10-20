@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+
   # GET /products
   # GET /products.json
   def index
@@ -15,20 +16,30 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    @locations =  Location.all
+    @locations = Location.all
     @conditions =  Condition.all
     @statuses = Status.all
-
+    respond_to do |format|
+      format.html
+      format.json { render :json => @product }
+    end
   end
 
   # GET /products/1/edit
   def edit
+    # @product = product.find(params[:id])
+    @locations = Location.all
+    @conditions = Condition.all
+    @statuses = Status.all
   end
 
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @locations = Location.all
+    @conditions = Condition.all
+    @statuses = Status.all
 
     respond_to do |format|
       if @product.save
@@ -44,6 +55,10 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @locations = Location.all
+    @conditions = Condition.all
+    @statuses = Status.all
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }

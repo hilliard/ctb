@@ -1,11 +1,16 @@
 Ctb::Application.routes.draw do
   resources :statuses
-
   resources :conditions
-
   resources :locations
-
   resources :products
+
+  resources :line_items
+
+  resources :carts
+
+  get "store/index"
+  get "cart/index" => "cart#index"
+
 
   # root :to => "home#index"
 
