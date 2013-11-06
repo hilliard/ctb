@@ -1,4 +1,6 @@
 Ctb::Application.routes.draw do
+  resources :categories
+
   resources :statuses
   resources :conditions
   resources :locations

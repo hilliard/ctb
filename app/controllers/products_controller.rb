@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     @locations = Location.all
     @conditions =  Condition.all
     @statuses = Status.all
+    @categories = Category.all
     respond_to do |format|
       format.html
       format.json { render :json => @product }
@@ -31,6 +32,7 @@ class ProductsController < ApplicationController
     @locations = Location.all
     @conditions = Condition.all
     @statuses = Status.all
+    @categories = Category.all
   end
 
   # POST /products
@@ -40,6 +42,7 @@ class ProductsController < ApplicationController
     @locations = Location.all
     @conditions = Condition.all
     @statuses = Status.all
+    @categories = Category.all
 
     respond_to do |format|
       if @product.save
@@ -58,6 +61,7 @@ class ProductsController < ApplicationController
     @locations = Location.all
     @conditions = Condition.all
     @statuses = Status.all
+    @categories = Category.all
 
     respond_to do |format|
       if @product.update(product_params)

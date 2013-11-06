@@ -63,7 +63,9 @@
       </div>
       <div class="field">
         <%= f.label :category %><br>
-        <%= f.text_field :category %>
+        <%#= f.text_field :category %>
+        <%#= f.collection_select(:category, :category_name, @categories, :id, :category_name,{:prompt => 'Select the category of this product'}) %>
+        <%= f.collection_select(:category, @categories, :category_name, :category_name ) %>
       </div>
       <div class="field">
         <%= f.label :color %><br>

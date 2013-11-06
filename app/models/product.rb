@@ -1,9 +1,10 @@
 class Product < ActiveRecord::Base
   default_scope :order => 'displayname'
   has_many   :line_items
-  has_many   :locations
-  has_many   :conditions
-  has_many   :statuses
+  # has_many   :locations
+  # has_many   :conditions
+  # has_many   :statuses
+  # has_many   :categories
 
 
   attr_accessible :displayname, :description, :location, :model, :vendor, :supplier, :cost, :value, :condition, :status, :category,
@@ -30,5 +31,7 @@ class Product < ActiveRecord::Base
     end
   end
 
-
+  def self.latest
+    Product.order(:updated_at).last
+  end
 end
