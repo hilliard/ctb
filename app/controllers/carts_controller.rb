@@ -72,7 +72,7 @@ class CartsController < ApplicationController
     @cart.destroy  if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to store_index_path, notice: 'Your Cart Is Currently Empty' }
+      format.html { redirect_to store_index_path }
       format.json { head :no_content }
     end
   end
