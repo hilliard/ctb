@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   default_scope :order => 'displayname'
-  has_many   :line_items
+  has_many :line_items
+  has_many :orders, :through => :line_items
   # has_many   :locations
   # has_many   :conditions
   # has_many   :statuses

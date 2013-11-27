@@ -7,4 +7,8 @@
   <td><%= line_item.quantity %>&times;</td>
   <td><%= line_item.product.displayname %></td>
   <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+  <td><%= link_to image_tag("Remove.tiff"), decrease_line_item_path(line_item), :method => :put, remote: true %></td>
+  <td><%= link_to image_tag("Add.tiff"), increase_line_item_path(line_item), :method => :put, remote: true %></td>
 </tr>
+
+

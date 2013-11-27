@@ -1,12 +1,21 @@
 Ctb::Application.routes.draw do
+  resources :pay_types
+
+  resources :orders
+
   resources :categories
 
   resources :statuses
   resources :conditions
   resources :locations
-  resources :products
+  resources :products  do
+    get :who_bought, :on => :member
+  end
 
-  resources :line_items
+  resources :line_items do
+    put 'decrease', on: :member
+    put 'increase', on: :member
+  end
 
   resources :carts
 

@@ -195,7 +195,7 @@
   margin-bottom: 10px;
 }
 
-/* Styles for order form */
+/* Styles for Order Form */
 .depot_form fieldset{
   background: #efe;
 }
@@ -221,7 +221,7 @@
 .depot_form.submit{
   margin-left: 4em;
 }
-.depot_formdiv{
+.depot_form div{
   margin: 0.5 em0;
 }
 
